@@ -1,0 +1,35 @@
+<div class="row">
+    <div>
+        <button class="btn btn-danger my-3" routerLink="/postList/add">Add Post</button>
+    </div>
+    <div class="col-md-12">
+        <h3>Posts List</h3>
+
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let i of posts | async">
+                    <td>{{i.id}}</td>
+                    <td>{{i.title}}</td>
+                    <td>{{i.description}}</td>
+                    <td>
+                        <a  class="btn btn-primary" [routerLink]="['edit', i.id]">Update </a>&nbsp;
+                    </td>    
+                    </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<router-outlet></router-outlet>
